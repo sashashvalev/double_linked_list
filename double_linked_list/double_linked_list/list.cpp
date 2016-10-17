@@ -17,7 +17,6 @@ bool DoubleLinkedList::is_empty()
 	else return false;
 }
 
-
 void DoubleLinkedList::add(int data)
 {
 	node* curr = new node;
@@ -35,6 +34,20 @@ void DoubleLinkedList::add(int data)
 		curr->next = head;
 		head = curr;
 		curr->prev = NULL;
+	}
+}
+
+void DoubleLinkedList::addend(int data)
+{
+	if (is_empty()) return;
+	else
+	{
+		node* curr = new node;
+		curr->data = data;
+		tail->next = curr;
+		curr->prev = tail;
+		tail = curr;
+		curr->next = NULL;
 	}
 }
 
