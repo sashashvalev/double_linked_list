@@ -19,22 +19,22 @@ public:
 	DoubleLinkedList();
 
 	~DoubleLinkedList();
-	/*
-	1. Функция добавления в конец списка (append) */
 
 	bool is_empty();
 
 	void add(int data);
 
-	void addend(int data);
-
 	void insert(int data);
+
+	void append(int data);
 
 	void search(int data);
 
 	void printList();
 };
 
+/**/
+
 /*main context:
-DoubleLinkedList dll;
+DoubleLinkedList DLL;
 */

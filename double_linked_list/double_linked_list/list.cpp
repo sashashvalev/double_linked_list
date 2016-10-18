@@ -37,23 +37,10 @@ void DoubleLinkedList::add(int data)
 	}
 }
 
-void DoubleLinkedList::addend(int data)
+void DoubleLinkedList::insert(int data)
 {
 	if (is_empty()) return;
 	else
-	{
-		node* curr = new node;
-		curr->data = data;
-		tail->next = curr;
-		curr->prev = tail;
-		tail = curr;
-		curr->next = NULL;
-	}
-}
-
-void DoubleLinkedList::insert(int data)
-{
-	if (is_empty())
 	{
 		node* curr = head;
 		while (curr != NULL && curr->data == data)
@@ -67,7 +54,20 @@ void DoubleLinkedList::insert(int data)
 		curr->prev = newList;
 		newList->next = curr;
 	}
-	else return;
+}
+
+void DoubleLinkedList::append(int data)
+{
+	if (is_empty()) return;
+	else
+	{
+		node* curr = new node;
+		curr->data = data;
+		tail->next = curr;
+		curr->prev = tail;
+		tail = curr;
+		curr->next = NULL;
+	}
 }
 /*
 void deleteElem(int data, elem head)
@@ -101,7 +101,8 @@ curr = curr->next;
 */
 void DoubleLinkedList::search(int data)
 {
-	if (is_empty())
+	if (is_empty()) return;
+	else
 	{
 		node* curr = head;
 		while (curr != NULL && curr->data == data)
@@ -109,7 +110,6 @@ void DoubleLinkedList::search(int data)
 			curr = curr->next;
 		}
 	}
-	else return;
 }
 
 void DoubleLinkedList::printList()
