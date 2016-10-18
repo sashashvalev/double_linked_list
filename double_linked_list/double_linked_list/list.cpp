@@ -42,12 +42,7 @@ void DoubleLinkedList::insert(int data)
 	if (is_empty()) return;
 	else
 	{
-		node* curr = head;
-		node* newList = new node();
-		while (curr != NULL && curr->data != data)
-		{
-			curr = curr->next;
-		}
+		node* curr = search(data), *newList = new node();
 		newList->data = data;
 		newList->prev = curr;
 		curr->prev->next = newList;
@@ -99,16 +94,17 @@ curr = curr->next;
 }
 }
 */
-void DoubleLinkedList::search(int data)
+DoubleLinkedList::node* DoubleLinkedList::search(int data)
 {
-	if (is_empty()) return;
+	if (is_empty()) return NULL;
 	else
 	{
 		node* curr = head;
-		while (curr != NULL && curr->data == data)
+		while (curr != NULL && curr->data != data)
 		{
 			curr = curr->next;
 		}
+		return curr;
 	}
 }
 

@@ -28,7 +28,7 @@ public:
 
 	void append(int data);
 
-	void search(int data);
+	node* search(int data);
 
 	void printList();
 };
