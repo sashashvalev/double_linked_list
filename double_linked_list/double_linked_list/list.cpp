@@ -43,11 +43,11 @@ void DoubleLinkedList::insert(int data)
 	else
 	{
 		node* curr = head;
-		while (curr != NULL && curr->data == data)
+		node* newList = new node();
+		while (curr != NULL && curr->data != data)
 		{
 			curr = curr->next;
 		}
-		node* newList = new node();
 		newList->data = data;
 		newList->prev = curr;
 		curr->prev->next = newList;

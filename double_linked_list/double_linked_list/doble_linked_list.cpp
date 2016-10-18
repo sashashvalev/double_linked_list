@@ -7,7 +7,8 @@ int main()
 	{
 		DLL.add(i);
 	}
-	DLL.append(9);
+	DLL.insert(3);
+	DLL.append(5);
 	DLL.printList();
 	_getch();
 	return 0;
