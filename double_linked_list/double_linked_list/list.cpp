@@ -42,7 +42,7 @@ void DoubleLinkedList::insert(int base, int valive)
 	if (is_empty()) return;
 	else
 	{
-		node* curr = search(base), *newList(NULL);
+		node* curr = search(base), *newList = new node;
 		newList->data = valive;
 		newList->prev = curr;
 		curr->prev->next = newList;
