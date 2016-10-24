@@ -11,7 +11,7 @@ private:
 		node* prev;
 		node* next;
 	};
-	node* head, *tail;
+	node *head, *tail;
 
 
 public:
@@ -24,9 +24,13 @@ public:
 
 	void add(int data);
 
-	void insert(int data);
+	void insert(int base, int valive);
 
 	void append(int data);
+
+	void deleteElem(int data);
+
+	void sortList();
 
 	node* search(int data);
 
@@ -36,5 +40,5 @@ public:
 /**/
 
 /*main context:
-DoubleLinkedList DLL;
+DoubleLinkedList List;
 */

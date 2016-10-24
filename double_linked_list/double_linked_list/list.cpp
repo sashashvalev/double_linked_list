@@ -37,13 +37,13 @@ void DoubleLinkedList::add(int data)
 	}
 }
 
-void DoubleLinkedList::insert(int data)
+void DoubleLinkedList::insert(int base, int valive)
 {
 	if (is_empty()) return;
 	else
 	{
-		node* curr = search(data), *newList = new node();
-		newList->data = data;
+		node* curr = search(base), *newList(NULL);
+		newList->data = valive;
 		newList->prev = curr;
 		curr->prev->next = newList;
 		curr->prev = newList;
@@ -64,36 +64,66 @@ void DoubleLinkedList::append(int data)
 		curr->next = NULL;
 	}
 }
-/*
-void deleteElem(int data, elem head)
+
+void DoubleLinkedList::deleteElem(int data)
 {
-elem* curr = search(data, &head);
-if (curr) {
-elem *prew = curr->prev;
-elem *next = curr->next;
-prew->next = next;
-next->prev = prew;
-delete curr;
-}
-else cout << "not list";
+	if (is_empty()) cout << "not list" << endl;
+	else
+	{
+		node* curr = search(data);
+		if (curr->prev != NULL && curr->next != NULL)
+		{
+			node *PREV = curr->prev;
+			node *NEXT = curr->next;
+			PREV->next = NEXT;
+			NEXT->prev = PREV;
+			delete curr;
+			return;
+		}
+		if (curr->prev == NULL && curr->next != NULL)
+		{
+			head = curr->next;
+			delete curr;
+			return;
+		}
+		if (curr->prev != NULL && curr->next == NULL)
+		{
+			tail = curr->prev;
+			delete curr;
+			return;
+		}
+		if (curr->prev == NULL && curr->next == NULL)
+		{
+			delete curr;
+			head = NULL;
+			tail = NULL;
+			return;
+		}
+	}
 }
 
-void sortList(elem** head)
+void DoubleLinkedList::sortList()
 {
-elem* curr = *head;
-while (curr->next) {
-if (curr->data > curr->next->data) {
-int data = curr->data;
-curr->data = curr->next->data;
-curr->next->data = data;
-curr = curr->next;
-sortList(head);
+	if (is_empty()) cout << "not list" << endl;
+	else
+	{
+		node* curr = head;
+		while (curr->next)
+		{
+			if (curr->data > curr->next->data)
+			{
+				int data = curr->data;
+				curr->data = curr->next->data;
+				curr->next->data = data;
+				curr = curr->next;
+				sortList();
+			}
+			else
+				curr = curr->next;
+		}
+	}
 }
-else
-curr = curr->next;
-}
-}
-*/
+
 DoubleLinkedList::node* DoubleLinkedList::search(int data)
 {
 	if (is_empty()) return NULL;
